@@ -49,7 +49,7 @@ bool HWPEnabler::start (IOService *provider)
     }
     if (key_setdefaultsHWP)
     {
-        if (key_defaultsHWP->isEqualTo("0"))
+        if (!key_defaultsHWP->isEqualTo("0"))
         {
             wrmsr64(MSR_IA32_HWP_REQUEST, hex2int(key_defaultsHWP->getCStringNoCopy()));
         }else{
